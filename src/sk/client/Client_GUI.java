@@ -9,10 +9,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-/**
- * Created by Mato on 24.12.2013.
- */
-
 public class Client_GUI extends JFrame {
 
 	private JPanel root;
