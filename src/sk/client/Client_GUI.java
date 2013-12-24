@@ -68,8 +68,10 @@ public class Client_GUI extends JFrame {
 
 	private void setUpScanners() {
 		try {
+
 			input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			out = new PrintWriter(socket.getOutputStream(), true);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
