@@ -41,20 +41,28 @@ public class Client_GUI extends JFrame {
 				textArea1.append("<UserName> " + TextField.getText() + "\n");
 				TextField.setText("");
 
-				try {
-
-					message = input.readLine();
-
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-
-				System.out.println(message);
-
 			}
 
 		});
+
+		while (true) {
+
+
+			try {
+
+				message = input.readLine();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			if (message != null) {
+
+				textArea1.append(message + "\n");
+
+			}
+
+		}
 
 	}
 

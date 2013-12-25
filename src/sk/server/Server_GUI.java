@@ -1,6 +1,8 @@
 package sk.server;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,6 +14,8 @@ public class Server_GUI extends JFrame {
 
 	private JPanel root;
 	private JTextArea textArea1;
+	private JButton button1;
+	private JTextField textField1;
 
 	private ServerSocket server;
 	private Socket socket;
@@ -30,6 +34,18 @@ public class Server_GUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
+		button1.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent actionEvent) {
+
+				out.println(textField1.getText());
+				textArea1.append("<UserName> " + textField1.getText() + "\n");
+				textField1.setText("");
+
+			}
+
+		});
+
 		setUpServer();
 		setUpScanners();
 
@@ -44,12 +60,8 @@ public class Server_GUI extends JFrame {
 				e.printStackTrace();
 			}
 
-			out.println("Message received!");
-			out.flush();
+			if (message != null) {
 
-			if (message != " " && message != null) {
-
-				System.out.println(message);
 				textArea1.append(message + "\n");
 
 			}
