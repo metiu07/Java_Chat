@@ -60,7 +60,7 @@ public class Client_GUI extends JFrame {
 
 	private void setUpSocket() {
 		try {
-			socket = new Socket("localhost", 1997);
+			socket = new Socket(JOptionPane.showInputDialog("Please enter IP Adress..."), 1997);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
