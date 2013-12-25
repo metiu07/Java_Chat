@@ -38,7 +38,7 @@ public class Client_GUI extends JFrame {
 			public void actionPerformed(ActionEvent actionEvent) {
 
 				out.println(TextField.getText());
-				textArea1.append("<UserName> " + TextField.getText() + "\n");
+				textArea1.append("<Mato> " + TextField.getText() + "\n");
 				TextField.setText("");
 
 			}
@@ -58,7 +58,7 @@ public class Client_GUI extends JFrame {
 
 			if (message != null) {
 
-				textArea1.append(message + "\n");
+				textArea1.append("<Mything> " + message + "\n");
 
 			}
 

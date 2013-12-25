@@ -3,6 +3,8 @@ package sk.server;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,23 +36,42 @@ public class Server_GUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
+		setUpServer();
+		setUpScanners();
+
+		textField1.addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent keyEvent) {
+			}
+
+			@Override
+			public void keyPressed(KeyEvent keyEvent) {
+
+			}
+
+			@Override
+			public void keyReleased(KeyEvent keyEvent) {
+				if (keyEvent.getKeyCode() == KeyEvent.VK_ENTER) {
+					out.println(textField1.getText());
+					textArea1.append("<Mything> " + textField1.getText() + "\n");
+					textField1.setText("");
+				}
+			}
+		});
+
 		button1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent actionEvent) {
 
 				out.println(textField1.getText());
-				textArea1.append("<UserName> " + textField1.getText() + "\n");
+				textArea1.append("<Mything> " + textField1.getText() + "\n");
 				textField1.setText("");
 
 			}
 
 		});
 
-		setUpServer();
-		setUpScanners();
-
 		while (true) {
-
 
 			try {
 
@@ -62,9 +83,10 @@ public class Server_GUI extends JFrame {
 
 			if (message != null) {
 
-				textArea1.append(message + "\n");
+				textArea1.append("<Mato> " + message + "\n");
 
 			}
+
 
 		}
 
