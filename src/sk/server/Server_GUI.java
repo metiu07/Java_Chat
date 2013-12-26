@@ -1,6 +1,7 @@
 package sk.server;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -29,12 +30,14 @@ public class Server_GUI extends JFrame {
 
 	public Server_GUI() {
 
-		super("ServerWindow");
+		super("MythingChat");
 		setContentPane(root);
 		setSize(500, 500);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+		button1.setForeground(new Color(0xFF0000));
+		textArea1.setFocusable(false);
 
 		setUpServer();
 		setUpScanners();
